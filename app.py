@@ -11,7 +11,7 @@ load_dotenv()
 
 app = Flask(__name__)
 CORS(app, origins=[
-    'https://codepen.io'
+    'https://s.codepen.io'
 ])
 
 # --- Flask-Caching configuration ---

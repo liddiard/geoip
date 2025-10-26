@@ -13,7 +13,7 @@ Next, follow the instructions below to run the app.
 
 ### Docker (recommended)
 
-1. Run `docker compose up`
+1. Run `docker compose up`.
 
 ### Without Docker
 
@@ -58,3 +58,4 @@ server {
     }
 }
 ```
+

@@ -26,8 +26,7 @@ Next, follow the instructions below to run the app.
 Once the app is running, make a request to http://localhost:5050 with a valid public IP address in the `X-Forwarded-For` header. For example:
 
 ```shell
-curl --location 'localhost:5050' \
---header 'X-Forwarded-For: 75.219.240.157'
+curl --location 'localhost:5050' --header 'X-Forwarded-For: 75.219.240.157'
 ```
 
 You should get a response like:
@@ -58,4 +57,5 @@ server {
     }
 }
 ```
+
 

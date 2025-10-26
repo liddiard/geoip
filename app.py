@@ -1,14 +1,18 @@
 import os
 
-import geoip2.webservice
+import geoip2.webservice    
 from flask import Flask, request, jsonify
 from flask_caching import Cache
+from flask_cors import CORS
 from dotenv import load_dotenv
 
 
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app, origins=[
+    'https://codepen.io'
+])
 
 # --- Flask-Caching configuration ---
 cache = Cache(app, config={

@@ -43,8 +43,8 @@ def get_geo_info(ip_address):
                 "latitude": response.location.latitude,
                 "longitude": response.location.longitude
             }
-        except geoip2.errors.AddressNotFoundError:
-            return {"error": "IP address not found in GeoIP database."}
+        except:
+            return {"error": f"IP address {ip_address} not found in GeoIP database."}
 
 
 @app.route("/", methods=["GET"])
@@ -63,7 +63,11 @@ def index():
     """
     user_ip = request.headers.get("X-Forwarded-For", request.remote_addr)
     geo_info = get_geo_info(user_ip)
-    return jsonify(geo_info)
+    status_code = 200
+    if "error" in geo_info:
+        status_code = 400
+    return jsonify(geo_info), status_code
+
 
 
 if __name__ == "__main__":

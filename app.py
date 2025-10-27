@@ -1,7 +1,7 @@
 import os
 
 import geoip2.webservice    
-from flask import Flask, request, jsonify
+from flask import Flask, request
 from flask_caching import Cache
 from flask_cors import CORS
 from dotenv import load_dotenv
@@ -66,7 +66,7 @@ def index():
     status_code = 200
     if "error" in geo_info:
         status_code = 400
-    return jsonify(geo_info), status_code
+    return geo_info, status_code
 
 
 

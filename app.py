@@ -44,11 +44,19 @@ def get_geo_info(ip_address):
                 "longitude": response.location.longitude
             }
         except:
-            return {"error": f"IP address {ip_address} not found in GeoIP database."}
+            return {"error": f"IP address \"{ip_address}\" not found in GeoIP database."}
+
+
+def get_user_ip():
+    """
+    Returns the user's IP address.
+    """
+    ips = request.headers.get("X-Forwarded-For", request.remote_addr)
+    return ips.split(", ")[0] if ips is not None else None
 
 
 @app.route("/", methods=["GET"])
-@cache.cached(make_cache_key=lambda: request.headers.get("X-Forwarded-For", request.remote_addr))
+@cache.cached(make_cache_key=get_user_ip)
 def index():
     """
     Returns geolocation info for the user's IP address like:
@@ -61,7 +69,7 @@ def index():
         "longitude": -73.9559
     }
     """
-    user_ip = request.headers.get("X-Forwarded-For", request.remote_addr)
+    user_ip = get_user_ip()
     geo_info = get_geo_info(user_ip)
     status_code = 200
     if "error" in geo_info:

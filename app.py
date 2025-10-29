@@ -39,7 +39,7 @@ def get_geo_info(ip_address):
                 "ip": ip_address,
                 "country_name": response.country.name,
                 "country_code": response.country.iso_code,
-                "city_name": response.city.name,
+                "city": response.city.name,
                 "latitude": response.location.latitude,
                 "longitude": response.location.longitude
             }
@@ -61,8 +61,8 @@ def index():
     """
     Returns geolocation info for the user's IP address like:
     {
-        "city_name": "Brooklyn",
-        "country_iso_code": "US",
+        "city": "Brooklyn",
+        "country_code": "US",
         "country_name": "United States",
         "ip": "75.219.240.157",
         "latitude": 40.6462,

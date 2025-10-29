@@ -1,6 +1,6 @@
 # GeoIP
 
-Tiny Flask server to proxy [MaxMind GeoLite](https://dev.maxmind.com/geoip/geolocate-an-ip/web-services/) requests. Get the estimated city, country, and coordinates of a user's IP. 
+Tiny Flask server to proxy [MaxMind GeoLite](https://dev.maxmind.com/geoip/geolocate-an-ip/web-services/) requests. Get the estimated city, country, and coordinates of a user's IP.
 
 ## Installation
 
@@ -33,12 +33,12 @@ You should get a response like:
 
 ```json
 {
-    "city_name": "Brooklyn",
-    "country_iso_code": "US",
-    "country_name": "United States",
-    "ip": "75.219.240.157",
-    "latitude": 40.6462,
-    "longitude": -73.9559
+  "city": "Brooklyn",
+  "country_code": "US",
+  "country_name": "United States",
+  "ip": "75.219.240.157",
+  "latitude": 40.6462,
+  "longitude": -73.9559
 }
 ```
 
@@ -57,5 +57,3 @@ server {
     }
 }
 ```
-
-

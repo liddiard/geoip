@@ -38,7 +38,7 @@ def get_geo_info(ip_address):
             return {
                 "ip": ip_address,
                 "country_name": response.country.name,
-                "country_iso_code": response.country.iso_code,
+                "country_code": response.country.iso_code,
                 "city_name": response.city.name,
                 "latitude": response.location.latitude,
                 "longitude": response.location.longitude
